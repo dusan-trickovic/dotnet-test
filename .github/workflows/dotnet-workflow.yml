@@ -23,7 +23,7 @@ jobs:
             - name: Setup .NET
               uses: actions/setup-dotnet@v3
               with:
-                dotnet-version: '4.0.x'
+                dotnet-version: '3'
             
             - name: Run Build
               run: dotnet build
