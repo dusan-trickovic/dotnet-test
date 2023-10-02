@@ -23,9 +23,7 @@ jobs:
                 with:
                   dotnet-version: '3'
                   cache: true
-                #   cache-dependency-path: |
-                #     sampleproj1/package-lock.json
-                #     sampleproj2/package-lock.json
+                  cache-dependency-path: '**/package-lock.json'
               
               - name: Run Build
                 run: |
