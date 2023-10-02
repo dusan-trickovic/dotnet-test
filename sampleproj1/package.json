@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "jest": "^29.7.0"
+  },
+  "name": "sampleproj1",
+  "version": "1.0.0",
+  "description": "sample project simulation",
+  "main": "SampleProj.cs",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
