@@ -1,0 +1,33 @@
+name: Testing Caching With Multiple Projects
+
+on:
+    push:
+      branches:
+        - main
+        - test/caching-test
+    pull_request:
+      branches:
+        - main
+        - test/caching-test
+    workflow_dispatch:
+  
+jobs:
+      test-dotnet:
+          runs-on: ubuntu-latest
+          steps:
+              - name: Checkout Repo
+                uses: actions/checkout@v3
+              
+              - name: Setup .NET
+                uses: actions/setup-dotnet@v3
+                with:
+                  dotnet-version: '3'
+                  cache: true
+                  cache-dependency-path: |
+                    sampleproj1/package-lock.json
+                    sampleproj2/package-lock.json
+              
+              - name: Run Build
+                run: |
+                  dotnet build
+                  echo "Build Complete"
