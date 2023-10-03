@@ -1,0 +1,33 @@
+name: Test Dotnet 8
+
+on:
+    push:
+        branches:
+        - main
+        - test/preview-version
+    pull_request:
+        branches:
+        - main
+        - test/preview-version
+    workflow_dispatch:
+
+jobs:
+    test-dotnet-action:
+        runs-on: ubuntu-latest
+        steps:
+
+        - name: Checkout
+          uses: actions/checkout@v3
+
+        - name: Test Dotnet 8
+          uses: actions/setup-dotnet@v3
+          with:
+            dotnet-version: 8
+            dotnet-quality: 'preview'
+        
+        - name: Test Dotnet
+          run: dotnet --info
+
+        - name: Build
+          run: dotnet build
+    
